@@ -87,7 +87,7 @@ select {
 }
 
 .header {
-  margin: 2em;
+  margin: 1em;
   margin-top: 4em;
 }
 
@@ -103,10 +103,22 @@ select {
   margin-bottom: 2em;
 }
 
+.rating-cards, .review-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 0em 1em;
+}
+
+.review-cards {
+  margin-top: 2em;
+}
+
 .rating {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2em;
   gap: .8em;
 
   color: var(--dark-magenta) !important;
@@ -121,6 +133,7 @@ select {
 
 .review {
   background-color: var(--dark-magenta);
+  padding: 2em;
 }
 
 .review-pfp {
@@ -132,16 +145,6 @@ select {
   color: var(--soft-pink)
 }
 
-.rating-cards {
-  margin-bottom: 2em;
-}
-
-.rating-cards, .review-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-
 /*
 ================
 =HELPER CLASSES=
@@ -150,7 +153,6 @@ select {
 
 .base-card {
   color: white;
-  padding: 2em;
   border-radius: 10px;
 }
 
@@ -171,10 +173,18 @@ select {
 and (min-width : 950px) {
   .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    align-items: center;
+    min-height: 100vh;
+    margin: 0em 10em;
+
     grid-template-areas:
     'heading ... stars'
     'reviews reviews reviews';
+  }
+
+  .header {
+    font-size: larger;
   }
 
   .heading-txt {
@@ -185,8 +195,39 @@ and (min-width : 950px) {
     grid-area: stars;
   }
 
+  .rating {
+    flex-direction: row;
+  }
+
+  .rating1 {
+    transform: translate(-11em);
+  }
+
+  .rating2 {
+    transform: translate(-8em);
+  }
+
+  .rating3 {
+    transform: translate(-5em);
+  }
+
+  .rating {
+    padding: .8em 1em;
+  }
+
   .review-cards {
     grid-area: reviews;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .review1 {
+    transform: translateY(-5em);
+  }
+
+  .review2 {
+    transform: translateY(-2em);
   }
 }
 
